@@ -2,15 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface Clickable : MonoBehaviour {
+public interface Clickable {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	//this method is being called if the character interacts with the clickable
+	void onClick();
 }
