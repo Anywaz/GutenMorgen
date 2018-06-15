@@ -1,0 +1,5 @@
+Nötige Scripts:
+- Clickable (interface)
+- spezialisierte Clickables (pro Item bzw. Itemklasse)
+* z.B. Liste, Brotmesser, Wasserhahn (etc.)
+- Interaktionsskript (Spieler, hauptsächlich Raycast)
