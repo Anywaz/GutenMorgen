@@ -27,8 +27,8 @@ public class Wecker : MonoBehaviour, Clickable {
         rb = GetComponent<Rigidbody>();
         endPos = end.transform.position;
         startPos = start.transform.position;
-        startQuat = transform.rotation * Quaternion.Euler(Vector3.up * rotAngle);
-        endQuat = transform.rotation * Quaternion.Euler(Vector3.up * -rotAngle);
+        startQuat = transform.localRotation * Quaternion.Euler(Vector3.up * rotAngle);
+        endQuat = transform.localRotation * Quaternion.Euler(Vector3.up * -rotAngle);
         Destroy(start);
         Destroy(end);
         animating = true;
@@ -43,11 +43,11 @@ public class Wecker : MonoBehaviour, Clickable {
             timeElapsed += Time.deltaTime*speed;
             if (timeElapsed < 1.0) { 
                 transform.position = Vector3.Lerp(startPos, endPos, timeElapsed);
-                transform.rotation = Quaternion.Slerp(startQuat, endQuat, timeElapsed);
+                transform.localRotation = Quaternion.Slerp(startQuat, endQuat, timeElapsed);
             }
             else {
                 transform.position = Vector3.Lerp(endPos, startPos, timeElapsed-1.0f);
-                transform.rotation = Quaternion.Slerp(endQuat, startQuat, timeElapsed-1.0f);
+                transform.localRotation = Quaternion.Slerp(endQuat, startQuat, timeElapsed-1.0f);
                 if (timeElapsed >= 2.0f) timeElapsed = 0f;
             }
             
