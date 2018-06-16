@@ -13,7 +13,7 @@ public class Juice : WaterTap {
         Debug.Log("after onClick in Base");
 		transform.parent.SetParent(GameObject.FindWithTag("MainCamera").transform);
 
-        transform.parent.localPosition = new Vector3(0.3f, 0.05f, 0.7f);
+        transform.parent.localPosition = new Vector3(-0.3f, 0.05f, 0.7f);
         transform.parent.localRotation = Quaternion.AngleAxis(90.0f, Vector3.right);
         transform.parent.localRotation *= Quaternion.AngleAxis(-90.0f, Vector3.forward);
 

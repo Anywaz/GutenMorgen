@@ -15,6 +15,11 @@ public class PourMinigame : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if(transform.rotation != transform.parent.transform.rotation) {
+            float step = 45 * Time.deltaTime;
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, transform.parent.transform.rotation, step);
+        }
+
         //Left stick translation of juice
         float translation = Input.GetAxis("Horizontal") * speed;
         translation *= Time.deltaTime;
@@ -25,11 +30,12 @@ public class PourMinigame : MonoBehaviour {
 
         //boundary checks juice
         Vector3 localPos = juice.transform.parent.transform.localPosition;
-        if (localPos.z < -1.0f) juice.transform.parent.transform.localPosition.Set(localPos.x, localPos.y, -1.0f);
-        if (localPos.z > 1.0f) juice.transform.parent.transform.localPosition.Set(localPos.x, localPos.y, 1.0f);
-
-        if (localPos.y < -1.0f) juice.transform.parent.transform.localPosition.Set(localPos.x, -1.0f, localPos.z);
-        if (localPos.y > 1.0f) juice.transform.parent.transform.localPosition.Set(localPos.x, 1.0f, localPos.z);
+        Debug.Log("localPos juice:"+ localPos);
+        if (localPos.x < -0.5f) juice.transform.parent.transform.localPosition = new Vector3(-0.5f, localPos.y, localPos.z);
+        else if (localPos.x > 0.5f) juice.transform.parent.transform.localPosition = new Vector3( 0.5f, localPos.y, localPos.z);
+        localPos = juice.transform.parent.transform.localPosition;
+        if (localPos.y < -0.4f) juice.transform.parent.transform.localPosition = new Vector3(localPos.x, -0.4f, localPos.z);
+        else if (localPos.y > 0.4f) juice.transform.parent.transform.localPosition = new Vector3(localPos.x, 0.4f, localPos.z);
 
         //Right stick translation of glass
         translation = Input.GetAxis("Mouse X") * speed; //Controller right stick x-axis
@@ -40,12 +46,14 @@ public class PourMinigame : MonoBehaviour {
         glass.transform.parent.transform.Translate(0, 0, translation);
 
         //boundary checks glass
-        localPos = glass.transform.localPosition;
-        if (localPos.x < -1.0f) glass.transform.parent.transform.localPosition.Set(-1.0f, localPos.y, localPos.z);
-        if (localPos.x > 1.0f) glass.transform.parent.transform.localPosition.Set(1.0f, localPos.y, localPos.z);
+        localPos = glass.transform.parent.transform.localPosition;
+        Debug.Log("localPos juice:"+ localPos);
+        if (localPos.x < -0.5f) glass.transform.parent.transform.localPosition = new Vector3(-0.5f, localPos.y, localPos.z);
+        else if (localPos.x > 0.5f) glass.transform.parent.transform.localPosition = new Vector3(0.5f, localPos.y, localPos.z);
+        localPos = glass.transform.parent.transform.localPosition;
 
-        if (localPos.y < -1.0f) glass.transform.parent.transform.localPosition.Set(localPos.x, -1.0f, localPos.z);
-        if (localPos.y > 1.0f) glass.transform.parent.transform.localPosition.Set(localPos.x, 1.0f, localPos.z);
+        if (localPos.y < -0.4f) glass.transform.parent.transform.localPosition = new Vector3(localPos.x, -0.4f, localPos.z);
+        else if (localPos.y > 0.4f) glass.transform.parent.transform.localPosition  = new Vector3(localPos.x, 0.4f, localPos.z);
 
         //Left side rotation of juice
         if (Input.GetAxis("JoyTriggerL") > 0)
@@ -60,11 +68,11 @@ public class PourMinigame : MonoBehaviour {
         //Right side rotation of glass
         if (Input.GetAxis("JoyTriggerR") > 0)
         {
-            glass.transform.Rotate(0, Time.deltaTime * 100.0f, 0);
+            glass.transform.Rotate(0, Time.deltaTime * -100.0f, 0);
         }
         else if (Input.GetButton("JoyRB"))
         {
-            glass.transform.Rotate(0, Time.deltaTime * -100.0f, 0);
+            glass.transform.Rotate(0, Time.deltaTime * 100.0f, 0);
         }
 	}
 }
