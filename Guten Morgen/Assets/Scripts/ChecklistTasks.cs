@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ChecklistTasks {
+    static Dictionary<int, string> list;
 
-	static void Main()
+    static void Main()
     {
-        Dictionary<int, string> list = new Dictionary<int, string>();
-
-        list.Add(0,"");
-        
+        list = new Dictionary<int, string>();
+        list.Add(1,"Stop Alarm Clock");
     }
 }

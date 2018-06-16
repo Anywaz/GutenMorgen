@@ -1095,6 +1095,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkmark: {fileID: 1398344990255812, guid: ec6770465c434e744a253d3828ec90d3, type: 2}
+  listpoints:
+  - {fileID: 306469846}
+  - {fileID: 1720257075}
+  - {fileID: 647599204}
+  - {fileID: 1009920177}
+  - {fileID: 700887902}
 --- !u!1 &2125337667 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
