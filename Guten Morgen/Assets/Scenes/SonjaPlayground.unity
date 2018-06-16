@@ -1003,6 +1003,7 @@ GameObject:
   - component: {fileID: 2075087476}
   - component: {fileID: 2075087475}
   - component: {fileID: 2075087474}
+  - component: {fileID: 2075087478}
   m_Layer: 0
   m_Name: checklist
   m_TagString: checklist
@@ -1082,6 +1083,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &2075087478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2075087473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc962aca8b164c64c9ee8a91fa0d661c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkmark: {fileID: 1398344990255812, guid: ec6770465c434e744a253d3828ec90d3, type: 2}
 --- !u!1 &2125337667 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
