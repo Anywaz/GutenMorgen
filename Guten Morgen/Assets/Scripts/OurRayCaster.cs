@@ -29,8 +29,10 @@ public class OurRayCaster : MonoBehaviour {
                 {
                     Debug.Log("hit is checklist");
                     checklistAcquired = true;
-                    hit.transform.position = this.transform.position;
+                    hit.transform.position = this.transform.position + this.transform.forward;
+                    hit.transform.LookAt(this.transform);
                     hit.transform.SetParent(this.transform);
+                    checklist.SetActive(false);
                     //hier animation der checklist stoppen?
                 }
 				if(clicked != null) {
