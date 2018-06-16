@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class TriggerGlass : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+
+	void Start() {
+		enabled = false;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	void OnParticleCollision(GameObject other) {
+		Debug.Log("OnTriggerEnter!!!");
+		GameObject camera = transform.parent.parent.parent.gameObject;
+		camera.GetComponent<PourMinigame>().enabled = false;
+		camera.transform.parent.gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
+		camera.GetComponent<OurRayCaster>().enabled = true;
+		camera.GetComponent<PourMinigame>().finish();
 	}
 }

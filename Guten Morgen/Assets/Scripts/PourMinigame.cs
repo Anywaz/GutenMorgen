@@ -11,6 +11,10 @@ public class PourMinigame : MonoBehaviour {
 	void Start () {
         glass = GameObject.FindGameObjectWithTag("Glass");
         juice = GameObject.FindGameObjectWithTag("Juice");
+
+        GameObject child = glass.transform.GetChild(0).gameObject;
+        child.GetComponent<Collider>().enabled = true;
+        child.GetComponent<TriggerGlass>().enabled = true;
 	}
 	
 	// Update is called once per frame
@@ -30,7 +34,6 @@ public class PourMinigame : MonoBehaviour {
 
         //boundary checks juice
         Vector3 localPos = juice.transform.parent.transform.localPosition;
-        Debug.Log("localPos juice:"+ localPos);
         if (localPos.x < -0.5f) juice.transform.parent.transform.localPosition = new Vector3(-0.5f, localPos.y, localPos.z);
         else if (localPos.x > 0.5f) juice.transform.parent.transform.localPosition = new Vector3( 0.5f, localPos.y, localPos.z);
         localPos = juice.transform.parent.transform.localPosition;
@@ -47,7 +50,6 @@ public class PourMinigame : MonoBehaviour {
 
         //boundary checks glass
         localPos = glass.transform.parent.transform.localPosition;
-        Debug.Log("localPos juice:"+ localPos);
         if (localPos.x < -0.5f) glass.transform.parent.transform.localPosition = new Vector3(-0.5f, localPos.y, localPos.z);
         else if (localPos.x > 0.5f) glass.transform.parent.transform.localPosition = new Vector3(0.5f, localPos.y, localPos.z);
         localPos = glass.transform.parent.transform.localPosition;
@@ -75,4 +77,10 @@ public class PourMinigame : MonoBehaviour {
             glass.transform.Rotate(0, Time.deltaTime * 100.0f, 0);
         }
 	}
+
+    public void finish() {
+        Destroy(glass);
+        Destroy(juice);
+        Destroy(this);
+    }
 }

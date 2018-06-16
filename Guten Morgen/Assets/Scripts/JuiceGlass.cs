@@ -11,6 +11,10 @@ public class JuiceGlass : MonoBehaviour, Clickable {
         transform.parent.localRotation = Quaternion.AngleAxis(90.0f, Vector3.right);
 		transform.parent.localRotation *= Quaternion.AngleAxis(180, Vector3.up);
 
+        GameObject child = transform.GetChild(0).gameObject;
+        child.GetComponent<Collider>().enabled = true;
+        child.AddComponent<TriggerGlass>();
+
         Debug.Log("Name of Parent: " + this.transform.parent.name);
     }
 }
