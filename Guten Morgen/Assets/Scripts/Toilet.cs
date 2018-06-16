@@ -4,22 +4,37 @@ using UnityEngine;
 
 public class Toilet : MonoBehaviour, Clickable {
     private bool clicked;
-    public void onClick()
+    private bool open;
+    public float openAngle, closeAngle;
+    public float speed;
+public void onClick()
     {
-        if (!clicked) //TODO: Play Sound?
-            ;
-        else //TODO: Open/Go to toilet
-            ;
+        if (!clicked)
+        {
+            //TODO: Play Sound?
+            clicked = true;
+        }
+        else
+        {
+            open = !open;
+        }
         
     }
 
     // Use this for initialization
     void Start () {
         clicked = false;
+        open = false;
+        if (speed < 1.0f) speed = 1.0f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        Quaternion target;
+
+        if (open) target = Quaternion.Euler(closeAngle, 0, 0);
+        else target = Quaternion.Euler(openAngle, 0, 0);
+
+        transform.localRotation = Quaternion.Slerp(transform.localRotation, target, Time.deltaTime*speed);
 	}
 }
