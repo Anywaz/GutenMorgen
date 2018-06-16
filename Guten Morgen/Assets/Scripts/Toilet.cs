@@ -32,8 +32,8 @@ public void onClick()
 	void Update () {
         Quaternion target;
 
-        if (open) target = Quaternion.Euler(closeAngle, 0, 0);
-        else target = Quaternion.Euler(openAngle, 0, 0);
+        if (open) target = Quaternion.Euler(openAngle, -90, 90);
+        else target = Quaternion.Euler(closeAngle, -90, 90);
 
         transform.localRotation = Quaternion.Slerp(transform.localRotation, target, Time.deltaTime*speed);
 	}
