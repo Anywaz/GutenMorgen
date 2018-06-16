@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WaterTap : MonoBehaviour, Clickable  {
 	public ParticleSystem water;
+    private bool freeOpen;
 
 	public virtual void onClick() {
 		if( water.isPlaying) {
@@ -15,9 +16,19 @@ public class WaterTap : MonoBehaviour, Clickable  {
 		}
 	}
 
-	public bool isWaterRunning() {
+	public bool IsWaterRunning() {
 		return water.isPlaying;
 	}
+
+    public bool IsFree()
+    {
+        return freeOpen;
+    }
+
+    public void CheckOpen(bool free)
+    {
+        freeOpen = free;
+    }
 }
 
 
