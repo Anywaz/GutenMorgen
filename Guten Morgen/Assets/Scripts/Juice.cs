@@ -5,7 +5,7 @@ using UnityEngine;
 public class Juice : MonoBehaviour, Clickable {
 
 
-	void onClick() {
+	public void onClick() {
 
 	}
 }
