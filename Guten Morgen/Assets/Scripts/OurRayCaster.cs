@@ -20,7 +20,7 @@ public class OurRayCaster : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown("space")) {
+		if(Input.GetButtonDown("JoyA")) {
             Debug.Log("Start Raycast");
             //this casts the raycast
             RaycastHit hit;
@@ -40,7 +40,7 @@ public class OurRayCaster : MonoBehaviour {
                         checklist.SetActive(false);
                         //hier animation der checklist stoppen?
                     }
-                    if(clicked != null) {
+                    if(clicked != null && !hit.transform.tag.Equals("Juice") && !hit.transform.tag.Equals("Glass")) {
                         //we hit a clickable!
                         clicked.onClick();
                         Debug.Log("onClick");
@@ -49,6 +49,7 @@ public class OurRayCaster : MonoBehaviour {
                 if (hit.transform.tag.Equals("Juice")) {
                     holdsJuice = true;
                     clicked.onClick();
+                    Debug.Log("This is a unique message");
                     Debug.Log("onClick");
                 }
                 if (hit.transform.tag.Equals("Glass") ) {
@@ -60,10 +61,12 @@ public class OurRayCaster : MonoBehaviour {
                     UnityStandardAssets.Characters.FirstPerson.FirstPersonController fpsControl;
                     fpsControl = transform.parent.gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
                     fpsControl.enabled = false;
+                    this.gameObject.AddComponent<PourMinigame>();
+                    this.enabled = false;
                 }
             }
         }
-        if (Input.GetKeyDown(KeyCode.H) && checklistAcquired)
+        if (Input.GetButtonDown("JoyY") && checklistAcquired)
         {
             if (isChecklistActive)
             {

@@ -5,8 +5,9 @@ using UnityEngine;
 public class WaterTap : MonoBehaviour, Clickable  {
 	public ParticleSystem water;
 
-	public void onClick() {
+	public virtual void onClick() {
 		if( water.isPlaying) {
+            Debug.Log("Hello Water?");
 			water.Stop();
 		}
 		else {
