@@ -206,7 +206,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 207101421}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2881f9c9fa8f3a148a672ac78ce730a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 766164737092e2c4b884b30db8a5b4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   water: {fileID: 1004512417}
@@ -290,6 +290,10 @@ Prefab:
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
@@ -427,6 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2881f9c9fa8f3a148a672ac78ce730a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  water: {fileID: 1790844227}
   water: {fileID: 1790844227}
 --- !u!23 &833293805
 MeshRenderer:
@@ -639,7 +644,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1207073865
+  randomSeed: 429957514
   InitialModule:
     serializedVersion: 3
     enabled: 1
