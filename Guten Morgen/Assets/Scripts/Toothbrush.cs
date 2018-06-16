@@ -20,9 +20,9 @@ public class Toothbrush : MonoBehaviour, Clickable {
 
     // Use this for initialization
     void Start () {
-        bone1 = transform.Find("Bone008");
+       /* bone1 = transform.Find("Bone008");
         bone2 = bone1.Find("Bone009");
-        bone3 = bone2.Find("Bone010");
+        bone3 = bone2.Find("Bone010");*/
         sinkScript = sink.gameObject.GetComponent<WaterTap>();
     }
 	
