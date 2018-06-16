@@ -17,7 +17,7 @@ public class JuiceGlass : MonoBehaviour, Clickable {
 	} 
 
 	public void onClick() {
-		transform.SetParent(gameObject.FindWithTag("Player"));
+		transform.SetParent(GameObject.FindWithTag("Player").transform);
 		
 	}
 }

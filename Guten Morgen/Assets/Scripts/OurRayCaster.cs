@@ -57,8 +57,8 @@ public class OurRayCaster : MonoBehaviour {
                     Debug.Log("onClick");
                 }
                 if(holdsGlass && holdsJuice) {
-                    FirstPersonController fpsControl;
-                    fpsControl = transform.parent.gameObject.GetComponent<FirstPersonController>();
+                    UnityStandardAssets.Characters.FirstPerson.FirstPersonController fpsControl;
+                    fpsControl = transform.parent.gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
                     fpsControl.enabled = false;
                 }
             }
