@@ -14,6 +14,10 @@ public class WaterTap : MonoBehaviour, Clickable  {
 			water.Play();
 		}
 	}
+
+	public bool isWaterRunning() {
+		return water.isPlaying;
+	}
 }
 
 
