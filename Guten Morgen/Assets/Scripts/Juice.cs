@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Juice : MonoBehaviour, Clickable {
-
+	public ParticleSystem water;
 
 	public void onClick() {
-        Vector3 zero = Vector3.zero;
+		if(water.isPlaying) {
+			water.Stop();
+		}
+		else {
+			water.Play();
+		}
 	}
 }
