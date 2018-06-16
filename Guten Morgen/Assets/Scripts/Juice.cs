@@ -6,6 +6,6 @@ public class Juice : MonoBehaviour, Clickable {
 
 
 	public void onClick() {
-
+        Vector3 zero = Vector3.zero;
 	}
 }
