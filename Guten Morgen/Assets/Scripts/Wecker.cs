@@ -11,20 +11,24 @@ public class Wecker : MonoBehaviour, Clickable {
     private Vector3 startPos, endPos;
     private Quaternion startQuat, endQuat;
     public float rotAngle;
+    private Rigidbody rb;
 
     public void onClick()
     {
         AudioSource alarm = gameObject.GetComponent<AudioSource>();
         alarm.Stop();
         animating = false;
+        rb.isKinematic = false;
+        rb.useGravity = true;
     }
 
     // Use this for initialization
     void Start () {
+        rb = GetComponent<Rigidbody>();
         endPos = end.transform.position;
         startPos = start.transform.position;
-        startQuat = transform.rotation * Quaternion.Euler(Vector3.back * rotAngle);
-        endQuat = transform.rotation * Quaternion.Euler(Vector3.back * -rotAngle);
+        startQuat = transform.rotation * Quaternion.Euler(Vector3.up * rotAngle);
+        endQuat = transform.rotation * Quaternion.Euler(Vector3.up * -rotAngle);
         Destroy(start);
         Destroy(end);
         animating = true;
