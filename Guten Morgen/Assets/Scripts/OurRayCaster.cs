@@ -34,8 +34,9 @@ public class OurRayCaster : MonoBehaviour {
                     {
                         Debug.Log("hit is checklist");
                         checklistAcquired = true;
-                        hit.transform.position = this.transform.position + this.transform.forward;
+                        hit.transform.position = this.transform.position + this.transform.forward*0.3f;
                         hit.transform.LookAt(this.transform);
+                        hit.transform.localRotation *= Quaternion.AngleAxis(180, new Vector3(0, 0, 1));
                         hit.transform.SetParent(this.transform);
                         checklist.SetActive(false);
                         //hier animation der checklist stoppen?

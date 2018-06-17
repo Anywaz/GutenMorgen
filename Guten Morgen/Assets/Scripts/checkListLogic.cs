@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class checkListLogic : MonoBehaviour
 {
+    public Animator animator;
+    public Canvas crosshair;
     public GameObject checkmark;
     private List<task> tasks;
     private string[] taskDescriptions = { "Brush teeth", "Eat an apple", "This is an example", "What else is there really?", "Drink some sweet OJ", "How 'bout sum coffee", "Crumpets sound nice?", "*incoherent singing*" };
@@ -24,12 +26,15 @@ public class checkListLogic : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        animator = this.GetComponent<Animator>();
         foreach (GameObject o in listpoints)
         {
             o.GetComponent<TextMesh>().text = "";
         }
         listpoints[0].GetComponent<TextMesh>().text = "Read Me!";
         instantiateTasks();
+        crosshair.enabled = true;
+        animator.Play("runaway");
     }
 
     // Update is called once per frame
@@ -39,12 +44,17 @@ public class checkListLogic : MonoBehaviour
 
     private void OnEnable()
     {
+        crosshair.enabled = false;
         Debug.Log("reached OnEnable with isCaught");
         task[] chosen = findTasks();
         for (int i = 0; i < 5; i++)
         {
             listpoints[i].GetComponent<TextMesh>().text = chosen[i].description;
         }
+    }
+    private void OnDisable()
+    {
+        crosshair.enabled = true;
     }
 
     private task[] findTasks()
