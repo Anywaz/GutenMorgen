@@ -11,7 +11,7 @@ public void onClick()
     {
         if (!clicked)
         {
-            //TODO: Play Sound?
+            GetComponent<AudioSource>().Play();
             clicked = true;
         }
         else
