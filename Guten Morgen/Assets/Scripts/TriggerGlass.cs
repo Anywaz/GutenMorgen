@@ -9,16 +9,19 @@ public class TriggerGlass : MonoBehaviour {
 		enabled = false;
 	}
 
-    void OnParticleCollision(GameObject other)
+    void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Triggered...?" + other.tag);
-        /*
-        GameObject camera = transform.parent.parent.parent.gameObject;
-        camera.GetComponent<PourMinigame>().enabled = false;
-        camera.transform.parent.gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
-        camera.GetComponent<OurRayCaster>().enabled = true;
-        camera.GetComponent<PourMinigame>().finish();
-        this.enabled = false;*/
+        if (true)
+        {
+            Debug.Log("Triggered...?" + other.tag);
+            /*
+            GameObject camera = transform.parent.parent.parent.gameObject;
+            camera.GetComponent<PourMinigame>().enabled = false;
+            camera.transform.parent.gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
+            camera.GetComponent<OurRayCaster>().enabled = true;
+            camera.GetComponent<PourMinigame>().finish();
+            this.enabled = false;*/
+        }
     }
 
 }
