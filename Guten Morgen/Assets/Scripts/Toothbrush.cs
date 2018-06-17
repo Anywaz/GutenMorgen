@@ -97,7 +97,7 @@ public class Toothbrush : MonoBehaviour, Clickable {
                 UnityStandardAssets.Characters.FirstPerson.FirstPersonController fpc = player.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
                 fpc.m_WalkSpeed = oldw;
                 fpc.m_RunSpeed = oldr;
-                Destroy(this);
+                Destroy(gameObject);
             }
         }
     }
