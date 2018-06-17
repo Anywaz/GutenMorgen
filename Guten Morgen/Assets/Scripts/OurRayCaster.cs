@@ -62,6 +62,15 @@ public class OurRayCaster : MonoBehaviour {
                     fpsControl = transform.parent.gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
                     fpsControl.enabled = false;
                     this.gameObject.AddComponent<PourMinigame>();
+
+
+                    GameObject child = GameObject.FindGameObjectWithTag("Glass").transform.GetChild(0).gameObject;
+                    child.GetComponent<Collider>().enabled = true;
+                    child.AddComponent<TriggerGlass>();
+                    //start particlesystem:
+                    GameObject.FindGameObjectWithTag("Juice").gameObject.GetComponent<Juice>().ps.Play();
+
+
                     this.enabled = false;
                 }
             }
